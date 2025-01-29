@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🍁 Para mi Bonita de su Fab 🍁❤️ Te Amo ❤️</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #f9e3e8;
+            background-image: url('https://cdn.pixabay.com/animation/2022/09/28/02/42/02-42-52-631_512.gif'); /* Fondo con textura sutil */
+            background-position: center; /* Centra la imagen */
+            background-repeat: repeat;
+            text-align: center;
+            color: #ff3366;
+            padding-top: 70px;
+        }
+
+        h1 {
+            font-size: 75px;
+            color: #ff1a66;
+            font-family: 'Courier New', Courier, monospace;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 26px;
+            color: #ff3366;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .heart {
+            font-size: 80px;
+            color: #ff3366;
+        }
+
+        .button {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #ff1f3f;
+        }
+
+        #finalMessage {
+            font-size: 30px;
+            color: #ff1a66;
+            font-weight: bold;
+            display: none;
+        }
+
+        .response-buttons {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .response-buttons button {
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            background-color: #ff4d6d;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .response-buttons button:hover {
+            background-color: #ff1f3f;
+        }
+
+        #thankYouMessage {
+            font-size: 26px;
+            color: #ff3366;
+            display: none;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>¡Mi amorcito quiero decirte algunas cositas!</h1>
+    <div class="heart">🍁❤💖</div>
+    <div id="message1" class="message">Eres la razón por la que sonrío todos los días. 😘</div>
+    <div id="message2" class="message">Cada momento contigo es un regalo. 🎁</div>
+    <div id="message3" class="message">Tu amor me hace sentir completo. ❤️</div>
+    <div id="message4" class="message">Cada vez que te miro, siento que soy la persona más afortunada del mundo. 😍</div>
+    <div id="message5" class="message">Para mí eres única y perfecta, me encantas... 💖</div>
+    <div id="message6" class="message">Soy afortunado de poder ser parte de tu vida y tú de la mía. 🍁</div>
+    <div id="message7" class="message">Mi amor por ti no tiene límites. 😍</div>
+    <div id="finalMessage" class="message">Mi amor, ¿quieres ser mi San Valentín? 💌</div>
+
+    <button class="button" onclick="mostrarMensaje()">Te interesa?, haz click aquí preciosa... 💘</button>
+
+    <div class="response-buttons" id="responseButtons">
+        <button onclick="responderSi()">¡Sí, quiero ser tu San Valentín! 💖</button>
+        <button onclick="responderNo()">No, lo siento... 💔</button>
+    </div>
+
+    <div id="thankYouMessage"></div>
+
+    <script>
+        let mensajeActual = 1;  // Empezamos con el primer mensaje
+
+        function mostrarMensaje() {
+            // Mostramos el siguiente mensaje según el mensajeActual
+            if (mensajeActual <= 7) {
+                document.getElementById("message" + mensajeActual).style.display = "block";
+                mensajeActual++;
+            } else {
+                // Cuando llegue al último mensaje, mostramos la gran pregunta
+                document.getElementById("finalMessage").style.display = "block";
+                document.querySelector(".button").style.display = "none"; // Ocultamos el botón
+                document.getElementById("responseButtons").style.display = "block"; // Mostramos los botones de respuesta
+            }
+        }
+
+        function responderSi() {
+            // Mostramos el mensaje de agradecimiento y ocultamos los botones
+            document.getElementById("thankYouMessage").textContent = "¡Gracias por ser mi San Valentín! Te amo muchísimo 💖";
+            document.getElementById("thankYouMessage").style.display = "block";
+            document.getElementById("responseButtons").style.display = "none"; // Ocultamos el botón de respuesta
+        }
+
+        function responderNo() {
+            // Aunque se haga clic en "No", siempre lo redirige a la respuesta "Sí"
+            alert("Sé que me amas, así que elige 'Sí'. ¡Quiero que seas mi San Valentín! 💖");
+            responderSi(); // Fuerza la respuesta "Sí"
+        }
+    </script>
+
+</body>
+</html>
